@@ -8,6 +8,8 @@ d3.json(link).then((data) => {
     console.log(data.features);
 });
 
+//create the map and layers for visualization 
+
 function createMap(earthquakes) {
     // assign the  mapbox style
 
@@ -53,7 +55,7 @@ function createMap(earthquakes) {
     legend.addTo(myMap);
 
 }
-
+// set the information for each circle
 function createFeatures(eqdata) {
     function onEachFeature(feature, layer) {
         layer.bindPopup('<h4>Place: ' + feature.properties.place + '</h4><h4>Date: ' + new Date(feature.properties.time) + '</h4><h4>Magnitude: ' + feature.properties.mag + '</h4><h4>USGS Event Page: <a href=' + feature.properties.url + " target='_blank'>Click here</a></h4>", { maxWidth: 400 })
